@@ -47,3 +47,8 @@ steps:
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml'
     pathToSources: 'string'
     failIfCoverageEmpty: false
+    # Dotnet core sdk task 7.0.x
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk 7.0.x'
+  inputs:
+    version: 7.0.x
