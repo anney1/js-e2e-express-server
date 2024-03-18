@@ -42,13 +42,8 @@ steps:
     targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
-# Publish code coverage results v1
-# Publish Cobertura or JaCoCo code coverage results from a build.
-- task: PublishCodeCoverageResults@1
+- task: PublishCodeCoverageResults@2
   inputs:
-    codeCoverageTool: 'JaCoCo' # 'Cobertura' | 'JaCoCo'. Required. Code coverage tool. Default: JaCoCo.
-    summaryFileLocation: # string. Required. Summary file. 
-    #pathToSources: # string. Path to Source files. 
-    #reportDirectory: # string. Report directory. 
-    #additionalCodeCoverageFiles: # string. Additional files. 
-    #failIfCoverageEmpty: false # boolean. Fail when code coverage results are missing. Default: false.
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/MyApp/**/site/cobertura/coverage.xml'
+    pathToSources: 'string'
+    failIfCoverageEmpty: false
